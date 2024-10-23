@@ -17,8 +17,10 @@ return new class extends Migration
             $table->unsignedBigInteger('book_id');
             $table->boolean('is_return')->default(false);
             $table->timestamps();
-            $table->foreign('loan_id')->references('id')->on('loans')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('book_id')->references('id')->on('books')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('loan_id')->references('id')
+                ->on('loans')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('book_id')->references('id')
+                ->on('books')->onUpdate('cascade')->onDelete('cascade');
 
         });
     }
